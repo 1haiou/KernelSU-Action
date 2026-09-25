@@ -1,12 +1,17 @@
 name: Check and Build
 
 env:
-  kernel_repository: PixelExperience-Devices/kernel_xiaomi_sdm845
-  kernel_branch: fourteen
-  device: dipper
-  clang_version: r487747c
+  kernel_repository: oppo-source/android_kernel_oppo_mt6771
+  kernel_branch: oppo/mt6771_r_11
+  device: oppo6771_defconfig
+  clang_version: r383902
   defconfig: |
-    dipper_defconfig
+    CONFIG_KALLSYMS=y
+    CONFIG_KALLSYMS_ALL=y
+    CONFIG_DEBUG_KERNEL=y
+    CONFIG_KPROBES=y
+    CONFIG_HAVE_KPROBES=y
+    CONFIG_KPROBE_EVENTS=y
   kernel_patch: |
     backport-path-umount.patch
   kernelsu_patch: |
