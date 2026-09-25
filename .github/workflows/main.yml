@@ -14,7 +14,6 @@ env:
     CONFIG_HAVE_KPROBES=y
     CONFIG_KPROBE_EVENTS=y
   kernel_patch: |
-    backport-path-umount.patch
   kernelsu_patch: |
 
 on:
