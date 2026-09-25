@@ -7,12 +7,6 @@ env:
   clang_version: r383902
   defconfig: |
     oppo6771_defconfig
-    CONFIG_KALLSYMS=y
-    CONFIG_KALLSYMS_ALL=y
-    CONFIG_DEBUG_KERNEL=y
-    CONFIG_KPROBES=y
-    CONFIG_HAVE_KPROBES=y
-    CONFIG_KPROBE_EVENTS=y
   kernel_patch: |
   kernelsu_patch: |
 
