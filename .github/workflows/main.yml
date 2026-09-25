@@ -6,6 +6,7 @@ env:
   device: oppo6771_defconfig
   clang_version: r383902
   defconfig: |
+    oppo6771_defconfig
     CONFIG_KALLSYMS=y
     CONFIG_KALLSYMS_ALL=y
     CONFIG_DEBUG_KERNEL=y
