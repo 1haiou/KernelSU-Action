@@ -188,6 +188,8 @@ jobs:
               fi
             done
           done
+          sed -i '/static inline char \*log_buf_addr_get/,/^}/d' include/linux/printk.h
+          sed -i '/static inline u32 log_buf_len_get/,/^}/d' include/linux/printk.h
           
       - name: Make defconfig
         run: |
