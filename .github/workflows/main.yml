@@ -175,6 +175,9 @@ jobs:
           CROSS_COMPILE_ARM32=arm-linux-gnueabi-
           " | tee -a $GITHUB_ENV
 
+      - name: Fix missing Kconfig
+        run: |
+          sed -i '/oppo_foreground_io_opt\/Kconfig/d' block/Kconfig
       - name: Make defconfig
         run: |
           make $flags merged_defconfig
