@@ -63,8 +63,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y \
-              binutils-arm-linux-gnueabi \
-              binutils-aarch64-linux-gnu
+              gcc-aarch64-linux-gnu \
+              gcc-arm-linux-gnueabi \
+              binutils-aarch64-linux-gnu \
+              binutils-arm-linux-gnueab
 
       - name: Checkout kernel source
         uses: actions/checkout@v4
