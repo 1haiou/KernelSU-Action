@@ -175,9 +175,18 @@ jobs:
           CROSS_COMPILE_ARM32=arm-linux-gnueabi-
           " | tee -a $GITHUB_ENV
 
-      - name: Fix missing Kconfig
+      - name: Fix missing Kconfigs
         run: |
-          sed -i '/oppo_foreground_io_opt\/Kconfig/d' block/Kconfig
+          find . -name "Kconfig" | while read -r kconfig; do
+            dir=$(dirname "$kconfig")
+            grep -oP '^\s*source\s+"\K[^"]+' "$kconfig" | while read -r src; do
+              if [ ! -e "$dir/$src" ]; then
+                echo "Removing missing source: $src in $kconfig"
+                sed -i "\|source \"$src\"|d" "$kconfig"
+              fi
+            done
+          done
+          
       - name: Make defconfig
         run: |
           make $flags merged_defconfig
